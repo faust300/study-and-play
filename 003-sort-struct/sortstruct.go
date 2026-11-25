@@ -1,3 +1,12 @@
+// Package sortstruct — 003. 정렬·구조체
+//
+// 구조체 slice를 정렬하고 가공하는 문제 3개. 각 함수 위 주석에 문제와 예시가 있다.
+//
+//	1. RankMentors  정산 금액 내림차순, 같으면 이름 오름차순으로 정렬 (입력은 바꾸지 않음)
+//	2. TopK         가장 많이 나온 단어 k개 (횟수 같으면 단어 오름차순)
+//	3. MergeWindows 겹치거나 맞닿은 점검 시간대 [Start, End)를 합치기
+//
+// 연습하는 Go 문법: 구조체, sort.Slice, slice 복사 (append([]T(nil), s...))
 package sortstruct
 import "sort"
 // Mentor는 멘토 한 명의 정산 정보다.

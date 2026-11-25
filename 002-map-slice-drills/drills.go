@@ -1,3 +1,15 @@
+// Package drills — 002. map·slice 몸풀기
+//
+// map과 slice를 다루는 감각을 되살리는 짧은 문제 5개. 각 함수 위 주석에 문제와 예시가 있다.
+//
+//	1. CountWords    단어별 등장 횟수 세기
+//	2. Dedupe        중복 제거 (처음 등장한 순서 유지)
+//	3. GroupByLength 문자열을 길이별로 묶기
+//	4. TwoSum        합이 target인 두 원소의 인덱스 찾기 (O(N))
+//	5. Reverse       slice를 제자리에서 뒤집기
+//
+// 연습하는 Go 문법: make, m[k]++, v, ok := m[k], map[int][]string, 다중 반환,
+// a[i], a[j] = a[j], a[i]
 package drills
 
 // 1. CountWords: 단어별 등장 횟수를 센다.

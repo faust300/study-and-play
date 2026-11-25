@@ -64,7 +64,6 @@ func TopK(words []string, k int) []string {
 // 2. cmp.Or: 앞의 비교가 0(같음)이면 다음 비교를 써요. "횟수로 비교하고, 같으면 이름으로"를 if 없이 한 줄로 쓸 수 있어요. 내림차순은 count[b], count[a]처럼 인자 순서를 뒤집으면 돼요.
 // 3. min(k, len(result)): Go 1.21부터 들어온 내장 함수예요. if len(result) > k 블록이 한 줄로 줄어요.
 // 4. if count[w]++; count[w] == 1: if 안에 짧은 문장을 먼저 실행할 수 있어요. 앞에서 쓴 if i, ok := idx[need]; ok와 같은 문법이에요. 다만 이건 오히려 읽기 어려워질 수 있어서, 원래처럼 두 줄로 써도 충분해요.
-
 // func TopK(words []string, k int) []string {
 // 	count := map[string]int{}
 // 	result := []string{}
@@ -89,6 +88,18 @@ type Window struct {
 // 입력은 정렬돼 있지 않을 수 있다. 맞닿음: [1,3)과 [3,5)는 [1,5)로 합친다.
 // 예) [{8 10} {1 3} {2 6} {6 7}] → [{1 7} {8 10}]
 func MergeWindows(windows []Window) []Window {
-	// TODO
-	return nil
+	sorted := append([]Window(nil), windows...)
+	sort.Slice(sorted, func(i, j int) bool {
+		return sorted[i].Start < sorted[j].Start
+	})
+	result := []Window{}
+	for _, w := range sorted {
+		n := len(result)
+		if n > 0 && w.Start <= result[n-1].End {
+			result[n-1].End = max(result[n-1].End, w.End)
+		} else {
+			result = append(result, w)
+		}
+	}
+	return result
 }

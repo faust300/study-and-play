@@ -18,7 +18,8 @@ Go 학습용 알고리즘 문제 저장소. 문제와 테스트는 Claude가 출
 | --- | --- | --- | --- |
 | `001-callback-retry` | 콜백 재시도 로그에서 미완료 작업 찾기 | `:=`, `for`·`range`, `_`, `map[int]bool`, `append` | 완료 |
 | `002-map-slice-drills` | map·slice 몸풀기 5문제 (세기, 중복 제거, 묶기, TwoSum, 뒤집기) | `make`, `m[k]++`, `v, ok := m[k]`, `map[int][]string`, 다중 반환, 값 맞바꾸기 | 완료 |
-| `003-sort-struct` | 정렬·구조체 3문제 (정산 순위, Top K, 점검 시간대 병합) | 구조체, `sort.Slice`, slice 복사 | 진행 전 |
+| `003-sort-struct` | 정렬·구조체 3문제 (정산 순위, Top K, 점검 시간대 병합) | 구조체, `sort.Slice`, slice 복사, `max`·`min` | 완료 |
+| `004-parse-error-method` | 콜백 로그 텍스트 파싱, 재시도 대기열, 요약 | `error` 반환, `errors.Is`, `fmt.Errorf("%w")`, `strings`·`strconv`, 메서드와 포인터 리시버 | 진행 전 |
 
 ## 실행
 

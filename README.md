@@ -1,6 +1,8 @@
 # study-and-play
 
-Claude가 문제를 내고 내가 Go로 푸는 알고리즘 연습 저장소.
+Go 학습용 알고리즘 문제 저장소. Claude가 문제를 내고 내가 Go로 푼다.
+
+알고리즘 자체보다 **Go 문법과 표준 라이브러리에 익숙해지는 것**이 목적이다. 그래서 문제마다 새로 써 볼 Go 문법(`:=`, `range`, map, slice, 다중 반환, `sort.Slice` 등)이 하나씩 들어가도록 순서를 잡는다.
 
 ## 진행 방식
 
@@ -12,11 +14,11 @@ Claude가 문제를 내고 내가 Go로 푸는 알고리즘 연습 저장소.
 
 ## 문제 목록
 
-| 폴더 | 내용 | 연습하는 것 | 상태 |
+| 폴더 | 내용 | 새로 써 보는 Go 문법 | 상태 |
 | --- | --- | --- | --- |
-| `001-callback-retry` | 콜백 재시도 로그에서 미완료 작업 찾기 | map으로 상태 기록, 등장 순서 유지 | 완료 |
-| `002-map-slice-drills` | map·slice 몸풀기 5문제 | 세기, 중복 제거, 묶기, TwoSum, 제자리 뒤집기 | 완료 |
-| `003-sort-struct` | 정렬·구조체 3문제 | 구조체 정렬, Top K, 구간 병합 | 진행 전 |
+| `001-callback-retry` | 콜백 재시도 로그에서 미완료 작업 찾기 | `:=`, `for`·`range`, `_`, `map[int]bool`, `append` | 완료 |
+| `002-map-slice-drills` | map·slice 몸풀기 5문제 (세기, 중복 제거, 묶기, TwoSum, 뒤집기) | `make`, `m[k]++`, `v, ok := m[k]`, `map[int][]string`, 다중 반환, 값 맞바꾸기 | 완료 |
+| `003-sort-struct` | 정렬·구조체 3문제 (정산 순위, Top K, 점검 시간대 병합) | 구조체, `sort.Slice`, slice 복사 | 진행 전 |
 
 ## 실행
 

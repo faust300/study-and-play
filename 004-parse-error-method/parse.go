@@ -11,7 +11,12 @@
 // strings.Split·TrimSpace, strconv.Atoi, 메서드와 포인터 리시버(*Queue)
 package parse
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 // Log는 콜백 로그 한 줄이다. Status는 "fail" 또는 "ok".
 type Log struct {
@@ -36,8 +41,19 @@ var (
 //	"abc,ok"      → ErrJobID
 //	"3,done"      → ErrStatus
 func ParseLine(line string) (Log, error) {
-	// TODO
-	return Log{}, nil
+	parts := strings.Split(strings.TrimSpace(line), ",")
+	if len(parts) != 2 {
+		return Log{}, fmt.Errorf("%w: %q", ErrFormat, line)
+	}
+	jobID, err := strconv.Atoi(strings.TrimSpace(parts[0]))
+	if err != nil {
+		return Log{}, fmt.Errorf("%w: %q: %w", ErrJobID, line, err)
+	}
+	status := strings.TrimSpace(parts[1])
+	if status != "ok" && status != "fail" {
+		return Log{}, fmt.Errorf("%w: %q", ErrStatus, line)
+	}
+	return Log{JobID: jobID, Status: status}, nil
 }
 
 // 2. Queue: 재시도할 job_id를 넣고 먼저 넣은 것부터 꺼내는 대기열(FIFO).

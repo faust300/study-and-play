@@ -64,21 +64,24 @@ func ParseLine(line string) (Log, error) {
 //	q.Len() → 1
 //	빈 대기열에서 q.Pop() → 0, false
 type Queue struct {
-	// TODO: 필요한 필드를 추가한다.
+	items []int
 }
 
 func (q *Queue) Push(jobID int) {
-	// TODO
+	q.items = append(q.items, jobID)
 }
 
 func (q *Queue) Pop() (int, bool) {
-	// TODO
-	return 0, false
+	if len(q.items) == 0 {
+		return 0, false
+	}
+	jobID := q.items[0]
+	q.items = q.items[1:]
+	return jobID, true
 }
 
 func (q *Queue) Len() int {
-	// TODO
-	return 0
+	return len(q.items)
 }
 
 // 3. Summarize: 여러 줄을 파싱해서 두 가지를 반환한다.
